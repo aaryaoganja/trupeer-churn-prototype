@@ -54,46 +54,61 @@ button{font:inherit;color:inherit}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* concept banner */
-.concept{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:10px 20px;background:var(--ink);color:var(--paper);font-size:13px}
+.concept{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:10px 20px;background:#0f1720;color:#fff;font-size:13px;border-bottom:1px solid rgba(255,255,255,.08)}
 .concept strong{font-family:var(--display);font-weight:600;letter-spacing:.01em}
 .concept .right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .toggle{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(255,255,255,.35);color:inherit;border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px}
 .toggle[aria-pressed="true"]{background:#fff8d6;color:#16202c;border-color:#fff8d6}
-.stepper{display:flex;gap:4px}
-.stepper span{width:22px;height:4px;border-radius:2px;background:rgba(255,255,255,.25)}
-.stepper span.on{background:#fff}
+.stepnav{display:flex;gap:4px;list-style:none;margin:0;padding:0;cursor:default}
+.stepnav li{display:flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px 4px 6px;border-radius:999px;color:rgba(255,255,255,.55)}
+.stepnav li i{font-style:normal;width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,.35)}
+.stepnav li.done{color:rgba(255,255,255,.8)}
+.stepnav li.done i{background:rgba(255,255,255,.18);border-color:transparent}
+.stepnav li.on{background:#fff;color:#16202c;font-weight:500}
+.stepnav li.on i{background:#3446d9;color:#fff;border-color:#3446d9}
 
 /* app shell */
 .app{display:grid;grid-template-columns:220px 1fr;min-height:calc(100% - 44px)}
 .side{background:var(--paper);border-right:1px solid var(--line);padding:18px 14px;display:flex;flex-direction:column;gap:4px}
 .brand{font-family:var(--display);font-weight:700;font-size:18px;padding:4px 10px 16px;display:flex;align-items:center;gap:8px}
 .brand i{width:22px;height:22px;border-radius:6px;background:var(--blue);display:inline-block}
-.nav{padding:8px 10px;border-radius:8px;color:var(--ink-2);font-size:14px}
-.nav.on{background:var(--blue-soft);color:var(--blue-ink);font-weight:500}
+.nav{padding:8px 10px;border-radius:8px;color:var(--ink-2);font-size:14px;cursor:not-allowed;user-select:none}
+.nav.on{background:var(--blue-soft);color:var(--blue-ink);font-weight:500;cursor:default}
 .side .foot{margin-top:auto;font-size:12px;color:var(--ink-3);padding:10px}
-.main{padding:24px clamp(16px,3vw,40px) 60px;min-width:0}
-.topbar{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.main{padding:28px clamp(16px,3vw,40px) 72px;min-width:0}
+.topbar{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.guide{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:14px;color:var(--ink-2)}
+.guide .gstep{flex:none;font-size:12px;font-weight:600;color:var(--blue-ink);background:var(--blue-soft);border-radius:999px;padding:3px 10px}
+.guide #gText{flex:1 1 280px;min-width:0}
+.guide #gText b{color:var(--ink);font-weight:600}
+.nudge{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{box-shadow:0 0 0 0 rgba(52,70,217,.45)}50%{box-shadow:0 0 0 6px rgba(52,70,217,0)}}
+.dead{opacity:.5;cursor:not-allowed!important}
+.dead:hover{border-color:transparent!important}
 h1{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.2;margin:0}
 .sub{color:var(--ink-2);margin:4px 0 0;font-size:14px}
 
 /* credit widget */
-.credits{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:260px}
+.credits{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:280px;cursor:default}
+.credits .cap{font-size:11.5px;color:var(--ink-3);margin-top:6px}
 .credits .row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2)}
 .credits .row b{color:var(--ink);font-weight:600}
 .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;display:flex;margin:8px 0 6px}
 .bar .new{background:var(--ink-3)}
 .bar .maint{background:var(--blue)}
 .bar .preview{background:repeating-linear-gradient(135deg,var(--ochre) 0 4px,transparent 4px 7px)}
-.legend{display:flex;gap:12px;font-size:12px;color:var(--ink-3);flex-wrap:wrap}
+.legend{display:flex;gap:6px 16px;font-size:12px;color:var(--ink-3);flex-wrap:wrap}
 .dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:1px}
 
 /* library table */
 .lib{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
 table{width:100%;border-collapse:collapse;min-width:640px}
-th{white-space:nowrap;text-align:left;font-weight:500;font-size:12.5px;color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--line)}
+th{white-space:nowrap;cursor:default;text-align:left;font-weight:500;font-size:12.5px;color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--line)}
 td{white-space:normal;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14px}
 tr:last-child td{border-bottom:0}
 tr.target{background:linear-gradient(90deg,var(--blue-soft),transparent 70%)}
+td:nth-child(2),td:nth-child(3),td:nth-child(4),td:nth-child(6){white-space:nowrap}
+td{cursor:default}
 .title{display:flex;gap:12px;align-items:center}
 .thumb{width:56px;height:36px;border-radius:6px;background:var(--panel);border:1px solid var(--line);position:relative;flex:none}
 .thumb::after{content:"";position:absolute;left:22px;top:11px;border-left:10px solid var(--ink-3);border-top:7px solid transparent;border-bottom:7px solid transparent;opacity:.6}
@@ -111,9 +126,10 @@ tr.target{background:linear-gradient(90deg,var(--blue-soft),transparent 70%)}
 .btn.ghost{border-color:transparent;background:transparent;color:var(--ink-2)}
 
 /* panels */
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
-.crumbs{font-size:13px;color:var(--ink-3);margin-bottom:10px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+.crumbs{font-size:13px;color:var(--ink-3);margin-bottom:12px;cursor:default}
 .crumbs button{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;font-size:13px}
+.crumbs button:hover{text-decoration:underline}
 .grid2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px;align-items:start}
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .steps label{display:grid;grid-template-columns:22px 64px 1fr auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
@@ -128,10 +144,12 @@ h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0 0 4px}
 .src label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
 .src input{accent-color:var(--blue);margin-top:3px}
 .src small{display:block;color:var(--ink-3)}
-.actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;margin-top:24px}
 
 /* compare */
-.compare{display:grid;grid-template-columns:1.15fr 1fr;gap:16px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.opt:hover{border-color:var(--line-2)}
+.opt[aria-checked="true"]:hover{border-color:var(--blue)}
 .opt{border:1.5px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;background:var(--paper);display:flex;flex-direction:column;gap:6px;text-align:left}
 .opt[aria-checked="true"]{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
 .opt .k{font-size:13px;color:var(--ink-2);font-weight:500}
@@ -144,7 +162,7 @@ h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0 0 4px}
 .fit[hidden]{display:none}
 .basis{font-size:12.5px;color:var(--ink-3);border-top:1px dashed var(--line-2);padding-top:8px;margin-top:6px}
 .illus{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;border:1px dashed var(--ink-3);color:var(--ink-2);margin-left:6px;vertical-align:2px}
-.impact{margin-top:18px}
+.impact{margin-top:24px;cursor:default}
 .impact .row{display:grid;grid-template-columns:130px 1fr 110px;gap:12px;align-items:center;font-size:13px;color:var(--ink-2);margin:6px 0}
 .impact .row b{color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
 .impact .bar{margin:0}
@@ -155,12 +173,54 @@ h2{font-family:var(--display);font-weight:600;font-size:18px;margin:0 0 4px}
 .sum dt{color:var(--ink-3)}
 .sum dd{margin:0}
 .keep{display:flex;flex-wrap:wrap;gap:6px}
-.handoff{display:flex;gap:14px;align-items:center;padding:16px;border:1px dashed var(--line-2);border-radius:12px;margin-top:10px}
+.handoff{display:flex;flex-direction:column;gap:16px;padding:18px;border:1px dashed var(--line-2);border-radius:12px;margin-top:20px}
+.handoff .actions{margin-top:0}
+.handoff .txt{flex:1 1 260px;min-width:0}
+[hidden]{display:none!important}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.proc{display:flex;gap:16px;align-items:flex-start;width:100%}
+.pbar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:10px}
+.pbar i{display:block;height:100%;width:0;background:var(--blue);transition:width .9s ease}
+.stages{display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--ink-3);list-style:none;padding:0}
+.stages li.done{color:var(--green)}
+.stages li.done::before{content:"✓ "}
+.stages li.on{color:var(--ink);font-weight:500}
+.result{width:100%;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;align-items:start}
+.clip{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);background:var(--panel)}
+.clip .ui{position:absolute;inset:0;display:grid;grid-template-columns:18% 1fr;grid-template-rows:12% 1fr}
+.clip .ui .tb{grid-column:1/-1;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 4%}
+.clip .ui .tb i{width:7px;height:7px;border-radius:50%;background:var(--line-2)}
+.clip .ui .rail{background:var(--paper);border-right:1px solid var(--line);padding:10% 12%;display:flex;flex-direction:column;gap:8%}
+.clip .ui .rail b{display:block;height:6px;border-radius:3px;background:var(--line)}
+.clip .ui .rail b.on{background:var(--blue)}
+.clip .ui .pane{padding:5% 6%;display:flex;flex-direction:column;gap:5%;min-width:0}
+.clip .ui .pane .f{flex:none}
+.clip .ui .pane .h{font-family:var(--display);font-weight:600;font-size:clamp(11px,1.4vw,15px);color:var(--ink)}
+.clip .ui .pane .f{height:12%;border-radius:5px;border:1px solid var(--line-2);background:var(--paper)}
+.clip .ui .pane .f.hl{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.clip .ui .pane .cta{align-self:flex-start;background:var(--blue);color:#fff;font-size:10px;padding:4px 10px;border-radius:5px}
+.clip .badge{margin-left:auto;background:var(--green);color:#fff;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:999px;line-height:1.4}
+.cap2{font-size:13px;color:var(--ink-2);margin-top:10px}
+.cap2 b{color:var(--ink);font-weight:600}
+.clip .play{position:absolute;left:59%;top:62%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;border:0;background:rgba(22,32,44,.78);cursor:pointer;display:grid;place-items:center}
+.clip .play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.clip .play.playing::after{border:0;width:14px;height:16px;margin:0;background:linear-gradient(90deg,#fff 0 35%,transparent 35% 65%,#fff 65%)}
+.clip .play:hover{background:rgba(22,32,44,.92)}
+.clip .play{box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+.segs{display:flex;gap:3px;margin-top:10px;position:relative}
+.segs span{height:22px;border-radius:4px;background:var(--line);position:relative;cursor:default}
+.segs span.new{background:var(--blue)}
+.segs span.new::after{content:"new";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:10.5px;font-weight:600}
+.segs .ph{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);left:0;border-radius:1px;transition:left linear}
+.seglegend{display:flex;gap:14px;font-size:12px;color:var(--ink-3);margin-top:8px;flex-wrap:wrap}
+.result h3{font-family:var(--display);font-size:16px;margin:0 0 6px}
+.result ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2)}
+.result li{margin:4px 0}
 .spin{width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--blue);animation:spin 1s linear infinite;flex:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* notes */
-.notes{display:none;margin-top:18px;gap:10px;flex-direction:column}
+.notes{display:none;margin-top:24px;gap:10px;flex-direction:column}
 body.show-notes .notes{display:flex}
 .note{background:var(--note);border:1px solid var(--note-line);color:var(--note-ink);border-radius:10px;padding:10px 12px;font-size:13px}
 .note b{font-weight:600}
@@ -174,12 +234,31 @@ body.show-notes .notes{display:flex}
 .screen{display:none}
 .screen.on{display:block}
 
+@media (max-width:1200px){.lib th:nth-child(3),.lib td:nth-child(3){display:none}.lib .tag{white-space:normal;border-radius:10px}}
+@media (max-width:1100px){.stepnav li:not(.on) span{display:none}.stepnav li{padding:4px 6px}}
+@media (max-width:700px){
+  .lib table{min-width:0}
+  .lib thead{display:none}
+  .lib table,.lib tbody,.lib tr,.lib td{display:block;width:100%}
+  .lib tr{padding:14px 16px;border-bottom:1px solid var(--line)}
+  .lib tr:last-child{border-bottom:0}
+  .lib td{border:0;padding:4px 0}
+  .lib td:nth-child(2),.lib td:nth-child(3){display:none}
+  .lib td:nth-child(4){font-size:13px;color:var(--ink-2)}
+  .lib td:nth-child(4)::before{content:"Last updated: ";color:var(--ink-3)}
+  .lib td:nth-child(6){padding-top:8px}
+  .lib td:nth-child(6):empty{display:none}
+  .lib td .dead{display:none}
+}
 @media (max-width:860px){
+  .concept{padding:10px 16px}
+  .credits{min-width:0;width:100%}
   .app{grid-template-columns:1fr}
   .side{display:none}
   .grid2,.compare{grid-template-columns:1fr}
   .impact .row{grid-template-columns:100px 1fr 90px}
   .sum{grid-template-columns:1fr}
+  .result{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -188,7 +267,7 @@ body.show-notes .notes{display:flex}
 <div class="concept" role="note">
   <div><strong>Concept prototype: maintenance-aware updating.</strong> Not Trupeer's production UI. Credit figures are illustrative.</div>
   <div class="right">
-    <div class="stepper" aria-label="Progress" id="stepper"><span></span><span></span><span></span><span></span><span></span></div>
+    <ol class="stepnav" id="stepper" aria-label="Progress"><li><i>1</i><span>Library</span></li><li><i>2</i><span>What changed</span></li><li><i>3</i><span>Compare</span></li><li><i>4</i><span>Confirm</span></li><li><i>5</i><span>Done</span></li></ol>
     <button class="toggle" id="notesBtn" aria-pressed="false" type="button">Show design notes</button>
   </div>
 </div>
@@ -196,10 +275,10 @@ body.show-notes .notes{display:flex}
 <div class="app">
   <nav class="side" aria-label="App navigation">
     <div class="brand"><i aria-hidden="true"></i>Workspace</div>
-    <div class="nav on">Library</div>
-    <div class="nav">Knowledge Base</div>
-    <div class="nav">Brand Kit</div>
-    <div class="nav">Settings</div>
+    <div class="nav on" aria-current="page">Library</div>
+    <div class="nav" aria-disabled="true" title="Not part of this prototype">Knowledge Base</div>
+    <div class="nav" aria-disabled="true" title="Not part of this prototype">Brand Kit</div>
+    <div class="nav" aria-disabled="true" title="Not part of this prototype">Settings</div>
     <div class="foot">Scale plan · 3 creator seats</div>
   </nav>
 
@@ -210,18 +289,21 @@ body.show-notes .notes{display:flex}
         <p class="sub">14 shipped assets. Your team's product education library.</p>
       </div>
       <div class="credits" aria-live="polite">
-        <div class="row"><span>Credits this cycle <span class="illus">illustrative</span></span><b id="usedLbl">6,200 / 10,000</b></div>
+        <div class="row"><span>Credits this cycle</span><b id="usedLbl">6,200 / 10,000</b></div>
         <div class="bar" aria-hidden="true"><div class="new" id="barNew" style="width:62%"></div><div class="maint" id="barMaint" style="width:0%"></div></div>
         <div class="legend"><span><i class="dot" style="background:var(--ink-3)"></i>New content <b id="newLbl">6,200</b></span><span><i class="dot" style="background:var(--blue)"></i>Maintenance <b id="maintLbl">0</b></span></div>
+        <div class="cap">Illustrative figures</div>
       </div>
     </div>
 
+    <div class="guide" id="guide" role="status" aria-live="polite"><span class="gstep" id="gStep">Step 1 of 5</span><span id="gText"></span></div>
+
     <!-- SCREEN 1: LIBRARY -->
     <section class="screen on" id="s1" aria-labelledby="h-s1">
-      <h2 id="h-s1" class="visually-hidden" style="position:absolute;left:-9999px">Library</h2>
+      <h2 id="h-s1" class="sr-only">Library</h2>
       <div class="lib">
         <table>
-          <thead><tr><th>Asset</th><th>Length</th><th>Views (30d)</th><th>Last updated</th><th>Status</th><th><span style="position:absolute;left:-9999px">Action</span></th></tr></thead>
+          <thead><tr><th>Asset</th><th>Length</th><th>Views (30d)</th><th>Last updated</th><th>Status</th><th><span class="sr-only">Action</span></th></tr></thead>
           <tbody>
             <tr class="target" id="targetRow">
               <td><div class="title"><div class="thumb"></div><div><div class="name">Product onboarding guide</div><div class="meta">Video + guide</div></div></div></td>
@@ -229,10 +311,10 @@ body.show-notes .notes{display:flex}
               <td id="statusCell"><span class="tag warn">Needs maintenance · marked by you</span></td>
               <td id="actCell"><button class="btn primary" id="startBtn" type="button">Update existing content</button></td>
             </tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Release 4.2 walkthrough</div><div class="meta">Video + guide</div></div></div></td><td>3:20</td><td>31</td><td>6 days ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Setting up SSO</div><div class="meta">Guide</div></div></div></td><td>—</td><td>12</td><td>2 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Admin roles explained</div><div class="meta">Video + guide · 2 languages</div></div></div></td><td>4:10</td><td>19</td><td>1 month ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Exporting reports</div><div class="meta">Video</div></div></div></td><td>2:05</td><td>4</td><td>3 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Release 4.2 walkthrough</div><div class="meta">Video + guide</div></div></div></td><td>3:20</td><td>31</td><td>6 days ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Setting up SSO</div><div class="meta">Guide</div></div></div></td><td>—</td><td>12</td><td>2 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Admin roles explained</div><div class="meta">Video + guide · 2 languages</div></div></div></td><td>4:10</td><td>19</td><td>1 month ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Exporting reports</div><div class="meta">Video</div></div></div></td><td>2:05</td><td>4</td><td>3 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -317,7 +399,7 @@ body.show-notes .notes{display:flex}
     <!-- SCREEN 4: CONFIRM -->
     <section class="screen" id="s4" aria-labelledby="h-s4">
       <div class="crumbs"><button type="button" data-go="1">Library</button> / Product onboarding guide / Update</div>
-      <div class="panel" style="max-width:760px">
+      <div class="panel" style="max-width:900px">
         <h2 id="h-s4">You're updating an existing asset</h2>
         <p class="muted">This counts as maintenance, not new content.</p>
         <dl class="sum">
@@ -327,9 +409,38 @@ body.show-notes .notes{display:flex}
           <dt>Share link & embeds</dt><dd>Stay the same and show the updated version</dd>
         </dl>
         <div id="handoff" class="handoff" hidden>
-          <div class="spin" aria-hidden="true"></div>
-          <div><b>Opening step swap for the selected steps</b><div class="meta">Trupeer's existing swap flow. Not redesigned in this concept.</div></div>
-          <button class="btn primary" id="finishBtn" type="button" style="margin-left:auto">Finish update</button>
+          <div class="proc" id="proc">
+            <div class="spin" aria-hidden="true"></div>
+            <div class="txt" style="flex:1;min-width:0">
+              <b id="procTitle">Replacing the changed step</b>
+              <div class="meta">Simulated. In the real product this uses Trupeer's existing step swap: you record only the changed step.</div>
+              <div class="pbar" role="progressbar" aria-label="Processing" aria-valuemin="0" aria-valuemax="100" id="pbar"><i id="pbarFill"></i></div>
+              <ol class="stages" id="stages"><li>Recording new step</li><li>Processing changed segment only</li><li>Placing it into the video</li></ol>
+            </div>
+          </div>
+          <div class="result" id="result" hidden>
+            <div>
+              <div class="clip" id="clip">
+                <div class="ui">
+                  <div class="tb"><i></i><i></i><i></i><span class="badge">Processed</span></div>
+                  <div class="rail"><b></b><b></b><b class="on"></b><b></b><b></b></div>
+                  <div class="pane"><div class="h" id="clipTitle">Configure workspace</div><div class="f"></div><div class="f hl"></div><div class="f"></div><div class="cta">Save</div></div>
+                </div>
+                <button class="play" id="playBtn" type="button" aria-label="Play updated step"></button>
+              </div>
+              <div class="cap2" id="clipCap">Step 4 · new recording · 0:40</div>
+              <div class="segs" id="segs" aria-label="Video timeline"></div>
+              <div class="seglegend"><span><i class="dot" style="background:var(--blue)"></i>Replaced step</span><span><i class="dot" style="background:var(--line-2)"></i>Unchanged steps</span></div>
+            </div>
+            <div>
+              <h3>Your updated step is ready</h3>
+              <p class="muted" style="margin:0">Press play to preview the new step (mock clip). Only the highlighted part of the timeline was reprocessed.</p>
+              <ul><li id="resCredits">67 credits, counted as maintenance</li><li>Unchanged steps kept as they were</li><li>Share link and embeds stay the same</li></ul>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn primary" id="finishBtn" type="button" disabled>Finish update</button>
+          </div>
         </div>
         <div class="actions" id="cfActions">
           <button class="btn" type="button" data-go="3">Back</button>
@@ -344,21 +455,21 @@ body.show-notes .notes{display:flex}
 
     <!-- SCREEN 5: UPDATED -->
     <section class="screen" id="s5" aria-labelledby="h-s5">
-      <h2 id="h-s5" style="position:absolute;left:-9999px">Library updated</h2>
+      <h2 id="h-s5" class="sr-only">Library updated</h2>
       <div class="lib">
         <table>
-          <thead><tr><th>Asset</th><th>Length</th><th>Views (30d)</th><th>Last updated</th><th>Status</th><th><span style="position:absolute;left:-9999px">Action</span></th></tr></thead>
+          <thead><tr><th>Asset</th><th>Length</th><th>Views (30d)</th><th>Last updated</th><th>Status</th><th><span class="sr-only">Action</span></th></tr></thead>
           <tbody>
             <tr class="flash" id="doneRow">
               <td><div class="title"><div class="thumb"></div><div><div class="name">Product onboarding guide</div><div class="meta" id="doneMeta">Video + guide · Step 4 replaced</div></div></div></td>
               <td>5:00</td><td>8</td><td><b>Updated just now</b></td>
               <td><span class="tag ok">Current</span></td>
-              <td><button class="btn ghost" type="button" id="restart">Restart demo</button></td>
+              <td><button class="btn" type="button" id="restart">Restart demo</button></td>
             </tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Release 4.2 walkthrough</div><div class="meta">Video + guide</div></div></div></td><td>3:20</td><td>31</td><td>6 days ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Setting up SSO</div><div class="meta">Guide</div></div></div></td><td>—</td><td>12</td><td>2 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-          <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Admin roles explained</div><div class="meta">Video + guide · 2 languages</div></div></div></td><td>4:10</td><td>19</td><td>1 month ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
-            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Exporting reports</div><div class="meta">Video</div></div></div></td><td>2:05</td><td>4</td><td>3 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost" type="button">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Release 4.2 walkthrough</div><div class="meta">Video + guide</div></div></div></td><td>3:20</td><td>31</td><td>6 days ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Setting up SSO</div><div class="meta">Guide</div></div></div></td><td>—</td><td>12</td><td>2 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+          <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Admin roles explained</div><div class="meta">Video + guide · 2 languages</div></div></div></td><td>4:10</td><td>19</td><td>1 month ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
+            <tr><td><div class="title"><div class="thumb"></div><div><div class="name">Exporting reports</div><div class="meta">Video</div></div></div></td><td>2:05</td><td>4</td><td>3 months ago</td><td><span class="tag plain">Current</span></td><td><button class="btn ghost dead" type="button" aria-disabled="true" title="Not part of this prototype">Open</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -377,12 +488,25 @@ body.show-notes .notes{display:flex}
   var steps=[["Sign in",35],["Create a project",45],["Invite teammates",40],["Configure workspace",40],["Connect integrations",50],["Publish",45],["Share with customers",45]];
   var TOTAL=300, RATE=100/60, RECREATE=550, USED=6200, ALLOW=10000;
   var sel=new Set(), maint=0, choice="update";
+  var GUIDE={
+    1:"The <b>Product onboarding guide</b> is out of date after a product release. Click <b>Update existing content</b> to start. Tip: <b>Show design notes</b> (in the dark bar at the top) explains what's new vs existing.",
+    2:"Tick the step that no longer matches your product (try <b>Step 4 · Configure workspace</b>), then click <b>See update cost</b>.",
+    3:"Compare updating only the changed step with recreating the whole asset. Pick one, then continue.",
+    4:"Check what changes and what stays the same, then click <b>Update existing content</b>. We'll simulate recording and processing the new step.",
+    5:"Done. The asset is current, its link is unchanged, and the credits show up as <b>maintenance</b>. Click <b>Restart demo</b> to try again."
+  };
+  var NUDGE={1:"startBtn",2:null,3:"toConfirm",4:"doUpdate",5:"restart"};
+  function nudge(id){document.querySelectorAll(".nudge").forEach(function(e){e.classList.remove("nudge")});if(id&&document.getElementById(id))document.getElementById(id).classList.add("nudge")}
   var $=function(id){return document.getElementById(id)};
   function fmt(n){return n.toLocaleString("en-US")}
   function mmss(s){return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
   function go(n){
     for(var i=1;i<=5;i++){$("s"+i).classList.toggle("on",i===n)}
-    var sp=$("stepper").children;for(var j=0;j<sp.length;j++){sp[j].classList.toggle("on",j<n)}
+    var sp=$("stepper").children;
+    for(var j=0;j<sp.length;j++){sp[j].classList.toggle("on",j===n-1);sp[j].classList.toggle("done",j<n-1);if(j===n-1)sp[j].setAttribute("aria-current","step");else sp[j].removeAttribute("aria-current")}
+    $("gStep").textContent="Step "+n+" of 5";
+    $("gText").innerHTML=GUIDE[n];
+    nudge(NUDGE[n]);
     var h=$("heading");
     var titles={1:["Library","14 shipped assets. Your team's product education library."],2:["Update existing content","Product onboarding guide · 5:00 · 7 steps"],3:["Update existing content","Compare before you commit"],4:["Update existing content","Review and confirm"],5:["Library","14 shipped assets. Your team's product education library."]};
     h.innerHTML="<h1>"+titles[n][0]+"</h1><p class='sub'>"+titles[n][1]+"</p>";
@@ -420,6 +544,7 @@ body.show-notes .notes{display:flex}
     var n=sel.size;
     $("toCompare").disabled=n===0;
     $("selSummary").textContent=n?(n+" step"+(n>1?"s":"")+" selected · "+mmss(selSecs())+" of 5:00"):"No steps selected.";
+    nudge(n?"toCompare":null);
   }
   $("toCompare").addEventListener("click",function(){
     var secs=selSecs(), cr=Math.round(secs*RATE);
@@ -453,13 +578,53 @@ body.show-notes .notes{display:flex}
     $("cfCredits").textContent=fmt(cr)+" credits";
     var keep=$("cfKeep");keep.innerHTML="";
     steps.forEach(function(s,i){if(!sel.has(i)){var t=document.createElement("span");t.className="tag plain";t.textContent="Step "+(i+1);keep.appendChild(t)}});
-    $("handoff").hidden=true;$("cfActions").hidden=false;
+    clearTimers();$("handoff").hidden=true;$("cfActions").hidden=false;
     go(4);
   });
 
   // screen 4
+  var timers=[];
+  function clearTimers(){timers.forEach(clearTimeout);timers=[]}
   $("doUpdate").addEventListener("click",function(){
-    $("cfActions").hidden=true;$("handoff").hidden=false;$("finishBtn").focus();
+    clearTimers();
+    $("cfActions").hidden=true;$("handoff").hidden=false;$("proc").hidden=false;$("result").hidden=true;
+    $("finishBtn").disabled=true;nudge(null);
+    $("gText").innerHTML="Processing the changed step. This takes a few seconds; <b>no action needed</b>.";
+    var st=$("stages").children, pct=[34,72,100], titles=["Recording the new step","Processing the changed segment only","Placing it into the video"];
+    for(var k=0;k<st.length;k++)st[k].className="";
+    $("pbarFill").style.width="0%";
+    [0,1,2].forEach(function(k){
+      timers.push(setTimeout(function(){
+        for(var m=0;m<st.length;m++)st[m].className=m<k?"done":(m===k?"on":"");
+        $("procTitle").textContent=titles[k]+"…";
+        $("pbarFill").style.width=pct[k]+"%";$("pbar").setAttribute("aria-valuenow",pct[k]);
+      },k*1100+60));
+    });
+    timers.push(setTimeout(showResult,3500));
+  });
+  function showResult(){
+    var st=$("stages").children;for(var m=0;m<st.length;m++)st[m].className="done";
+    $("proc").hidden=true;$("result").hidden=false;
+    var idx=Array.from(sel).sort(function(a,b){return a-b});
+    var first=idx[0];
+    $("clipTitle").textContent=steps[first][0];
+    $("clipCap").innerHTML="<b>"+idx.map(function(i){return "Step "+(i+1)}).join(", ")+"</b> · new recording · "+mmss(selSecs())+" · mock preview";
+    $("resCredits").textContent=fmt(Math.round(selSecs()*RATE))+" credits, counted as maintenance (illustrative)";
+    var segs=$("segs");segs.innerHTML="";
+    steps.forEach(function(s2,i){var sp=document.createElement("span");sp.style.flex=s2[1];sp.title="Step "+(i+1)+" · "+s2[0]+(sel.has(i)?" (replaced)":" (unchanged)");if(sel.has(i))sp.className="new";segs.appendChild(sp)});
+    var ph=document.createElement("i");ph.className="ph";ph.id="ph";segs.appendChild(ph);
+    $("finishBtn").disabled=false;nudge("finishBtn");
+    $("gText").innerHTML="Done processing. <b>Press play</b> to preview the updated step (optional), then click <b>Finish update</b>.";
+  }
+  $("playBtn").addEventListener("click",function(){
+    var b=this, ph=$("ph"); if(!ph)return;
+    var idx=Array.from(sel).sort(function(a,c){return a-c}), start=0;
+    for(var i=0;i<idx[0];i++)start+=steps[i][1];
+    var fromPct=start/TOTAL*100, toPct=(start+selSecs())/TOTAL*100;
+    b.classList.add("playing");b.setAttribute("aria-label","Playing");
+    ph.style.transition="none";ph.style.left=fromPct+"%";void ph.offsetWidth;
+    ph.style.transition="left 3s linear";ph.style.left=toPct+"%";
+    clearTimeout(b._t);b._t=setTimeout(function(){b.classList.remove("playing");b.setAttribute("aria-label","Play updated step")},3000);
   });
   $("finishBtn").addEventListener("click",function(){
     var cr=Math.round(selSecs()*RATE);
@@ -469,7 +634,6 @@ body.show-notes .notes{display:flex}
     $("usedLbl").textContent=fmt(USED+maint)+" / "+fmt(ALLOW);
     $("doneMeta").textContent="Video + guide · "+selNames().join(", ")+" replaced";
     go(5);
-    toast("Updated Product onboarding guide. "+fmt(cr)+" maintenance credits used.");
   });
 
   // screen 5
@@ -481,6 +645,10 @@ body.show-notes .notes{display:flex}
     go(1);
   });
 
+  document.addEventListener("click",function(e){
+    var d=e.target.closest(".dead,.nav[aria-disabled]");
+    if(d){e.preventDefault();toast("Not part of this prototype. Follow the highlighted button.")}
+  });
   var tt;
   function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("on")},3200)}
   go(1);
