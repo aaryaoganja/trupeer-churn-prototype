@@ -200,7 +200,7 @@ body.show-notes .notes{display:flex}
     <div class="nav">Knowledge Base</div>
     <div class="nav">Brand Kit</div>
     <div class="nav">Settings</div>
-    <div class="foot">Pro plan · 1 creator seat</div>
+    <div class="foot">Scale plan · 3 creator seats</div>
   </nav>
 
   <main class="main">
@@ -210,9 +210,9 @@ body.show-notes .notes{display:flex}
         <p class="sub">14 shipped assets. Your team's product education library.</p>
       </div>
       <div class="credits" aria-live="polite">
-        <div class="row"><span>Credits this cycle <span class="illus">illustrative</span></span><b id="usedLbl">1,240 / 2,000</b></div>
+        <div class="row"><span>Credits this cycle <span class="illus">illustrative</span></span><b id="usedLbl">6,200 / 10,000</b></div>
         <div class="bar" aria-hidden="true"><div class="new" id="barNew" style="width:62%"></div><div class="maint" id="barMaint" style="width:0%"></div></div>
-        <div class="legend"><span><i class="dot" style="background:var(--ink-3)"></i>New content <b id="newLbl">1,240</b></span><span><i class="dot" style="background:var(--blue)"></i>Maintenance <b id="maintLbl">0</b></span></div>
+        <div class="legend"><span><i class="dot" style="background:var(--ink-3)"></i>New content <b id="newLbl">6,200</b></span><span><i class="dot" style="background:var(--blue)"></i>Maintenance <b id="maintLbl">0</b></span></div>
       </div>
     </div>
 
@@ -268,6 +268,7 @@ body.show-notes .notes{display:flex}
       </div>
       <div class="notes">
         <div class="note"><span class="chip">Existing</span>Per-step capture and step swap already exist in Trupeer. The replacement itself uses the existing swap flow.</div>
+        <div class="note"><span class="chip">Packaging</span>Step swap is listed on Enterprise today. The proposal moves it to Scale, where recurring and multilingual libraries already sit; Pro teams get a reason to upgrade. This workspace is on Scale.</div>
         <div class="note"><span class="chip">New</span>Framing the action as <b>"what changed?"</b> on an existing asset. This gives the system the scope of the change (which steps, how long), which the cost comparison on the next screen needs.</div>
       </div>
     </section>
@@ -295,8 +296,8 @@ body.show-notes .notes{display:flex}
           </button>
         </div>
         <div class="impact">
-          <div class="row"><span>Update existing</span><div class="bar"><div class="new" style="width:62%"></div><div class="preview" id="impU" style="width:3.4%"></div></div><b id="impUL">1,307 / 2,000</b></div>
-          <div class="row"><span>Recreate</span><div class="bar"><div class="new" style="width:62%"></div><div class="preview" style="width:27.5%"></div></div><b>1,790 / 2,000</b></div>
+          <div class="row"><span>Update existing</span><div class="bar"><div class="new" style="width:62%"></div><div class="preview" id="impU" style="width:0.7%"></div></div><b id="impUL">6,267 / 10,000</b></div>
+          <div class="row"><span>Recreate</span><div class="bar"><div class="new" style="width:62%"></div><div class="preview" style="width:5.5%"></div></div><b>6,750 / 10,000</b></div>
         </div>
         <div class="hint" id="bigHint" hidden>You've selected most of this asset. At this size, recreating may be simpler.</div>
         <div class="actions">
@@ -309,7 +310,7 @@ body.show-notes .notes{display:flex}
         <div class="note"><span class="chip">New</span><b>Update-vs-recreate cost, shown before commit.</b> Today the credit widget shows rates and total usage, but not what a specific update will cost compared with recreating.</div>
         <div class="note"><span class="chip">Existing</span>Script and voiceover edits already cost 0 credits (observed on the trial). This comparison is for when <b>footage</b> changes, where the trial offers no step-level replacement: only re-record and regenerate. Generating a 5:43 video + guide used 600 credits.</div>
         <div class="note"><span class="chip">Pricing policy</span>Metering on the changed segment is a proposed policy. The recreate figure uses Trupeer's published rates. How swap is billed on Enterprise is unverified.</div>
-        <div class="note"><span class="chip">Calculated</span>550 credits is 27.5% of Pro's 2,000-credit monthly allowance. Each translated language adds 100 credits per minute.</div>
+        <div class="note"><span class="chip">Calculated</span>550 credits is 5.5% of Scale's 10,000 monthly credits (27.5% of Pro's 2,000). Each translated language adds 100 credits per minute, so multilingual libraries multiply it.</div>
       </div>
     </section>
 
@@ -362,7 +363,7 @@ body.show-notes .notes{display:flex}
         </table>
       </div>
       <div class="notes">
-        <div class="note"><span class="chip">New</span>The credit widget separates <b>maintenance</b> from <b>new content</b>. The customer sees that keeping the library current no longer eats their creation budget. Trupeer gets the metric the experiment needs: the update-in-place ratio.</div>
+        <div class="note"><span class="chip">New</span>The credit widget separates <b>maintenance</b> from <b>new content</b>. The customer sees that keeping the library current no longer eats their creation budget. Trupeer can also see how often libraries are maintained in place, a diagnostic; success is judged on retention against a holdout.</div>
         <div class="note"><span class="chip">The point</span>The asset was fixed for a fraction of its creation cost, with its link, embeds and unchanged steps intact. The next product release is a reason to come back, not a reason to rebuild.</div>
       </div>
     </section>
@@ -374,7 +375,7 @@ body.show-notes .notes{display:flex}
 <script>
 (function(){
   var steps=[["Sign in",35],["Create a project",45],["Invite teammates",40],["Configure workspace",40],["Connect integrations",50],["Publish",45],["Share with customers",45]];
-  var TOTAL=300, RATE=100/60, RECREATE=550, USED=1240, ALLOW=2000;
+  var TOTAL=300, RATE=100/60, RECREATE=550, USED=6200, ALLOW=10000;
   var sel=new Set(), maint=0, choice="update";
   var $=function(id){return document.getElementById(id)};
   function fmt(n){return n.toLocaleString("en-US")}
@@ -476,7 +477,7 @@ body.show-notes .notes{display:flex}
     sel.clear();maint=0;
     list.querySelectorAll("input").forEach(function(c){c.checked=false;c.closest("label").classList.remove("sel")});
     updateSel();
-    $("maintLbl").textContent="0";$("barMaint").style.width="0%";$("usedLbl").textContent="1,240 / 2,000";
+    $("maintLbl").textContent="0";$("barMaint").style.width="0%";$("usedLbl").textContent="6,200 / 10,000";
     go(1);
   });
 
